@@ -1,0 +1,17 @@
+<!-- Stage 1: no file has been uploaded -->
+<section class="section-upload row text-center">
+	<div class="col-md-4 col-md-offset-4">
+		<p>Please select a .csv file and click upload:</p>
+		<!-- If no file is selected and upload is pressed this error will pop up -->
+		<div class="alert alert-warning fade in" ng-if="table.error != null">
+			{{ table.error }}
+		</div>
+		<!-- File selector button -->
+		<div class="btn btn-default btn-wrapper">
+			<input class="btn-choose" type="file" id="fileInput" name="fileInput" accept=".csv"></input>
+		</div>
+		<br>
+		<!-- Press of this button triggers upload function -->
+		<button class="btn btn-success " ng-click="table.upload()">Upload</button>
+	</div>
+</section>

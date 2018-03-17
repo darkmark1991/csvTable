@@ -1,0 +1,31 @@
+<!-- Stage 3: a table was generated from the file -->
+<section class="section-upload row  text-center">
+	<div class="col-md-12">
+		<h3>Table from: {{ table.fileInfo.name }}</h3>
+		<table id="dataTable" name="dataTable" class="table table-bordered table-hover data-table">
+			<tbody>
+				<!-- ng-repeat iterates over rown of the table object -->
+				<tr ng-repeat="row in table.tableObj">
+					<!-- Nested ng-repeat iterates over cells in the row -->
+					<th ng-repeat="cell in row" class="data-cell">
+						<!-- ng-model ties this input to corresponding parameter in table object -->
+						<!-- ng-class calls getClass function and sets its return value as class of this input -->
+						<input 
+							type="text"
+							class="input-cell"
+							ng-model="row[$index].value"
+							ng-class="table.getClass(cell.value)"/>
+					</th>
+					<!-- Remove button is added as the last column -->
+					<th><a class="btn btn-link btn-delete" ng-click="table.removeRow($index)">remove</a></th>
+				</tr>
+			</tbody>			
+		</table>
+		<!-- Add Row button calls addRow function from the controller -->
+		<button class="btn btn-primary" ng-click="table.addRow()">Add Row</button>
+		<!-- Export Table button calls exportTable function from the controller -->
+		<button class="btn btn-lg btn-success" ng-click="table.exportTable()">Export Table</button> 
+		<!-- Go Back button calls reset function from the controller -->
+		<button class="btn btn-primary" ng-click="table.reset()">Go Back</button>
+	</div>
+</section>

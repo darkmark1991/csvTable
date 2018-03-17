@@ -1,0 +1,49 @@
+/* Center the header title */
+.navbar-brand { 
+	width: 100%;
+	text-align: center;
+}
+/* Style the file upload input to fit the style */
+.btn-wrapper {
+	overflow: hidden;
+	position: relative;
+	background-color: rgba(224, 224, 224, 0.404);
+	padding: 0;
+	margin: 10px;
+}
+.btn-choose {
+	margin-left: -96px;
+	padding: 5px;
+	cursor: pointer !important;
+}
+
+/* Add cell highlighting to the table */
+.data-table {
+	margin: 20px 0;
+}
+.data-table td,
+.data-table th {
+	padding: 0 !important;
+}
+.data-table th:hover {
+	background-color:rgba(255, 0, 0, 0.15);
+	transition: background-color 0.1s linear;
+}
+/* Style inputs to fill the whole table cell */
+.input-cell {
+	border: 0;
+	padding: 10px 15px;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0);
+}
+.input-cell:focus {
+	background-color:rgb(255, 191, 191);
+	transition: none;
+}
+/* Set distinguishing styles for numbers vs letters */
+.input-cell.red{
+	color: red;
+}
+.input-cell.blue{
+	color: blue;
+}

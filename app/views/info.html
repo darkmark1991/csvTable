@@ -1,0 +1,16 @@
+<!-- Stage 2: file has been uploaded -->
+<section class="section-upload row text-center">
+	<div class="col-md-4 col-md-offset-4">
+		<!-- Display file info -->
+		<h3>File Info:</h3>
+		<!-- ng-repeat iterates over the values of tableInfo -->
+		<p ng-repeat="(id, value) in table.fileInfo">
+			<!-- Custom capitalize filter is applied to the id -->
+			<strong>{{ id | capitalize }}:</strong> {{ value }}
+		</p>
+		<!-- Generate Table button calls parse data function from the controller -->
+		<button class="btn btn-success" ng-click="table.parseTableData()">Generate Table</button>
+		<!-- Go Back button calls reset function from the controller -->
+		<button class="btn btn-primary" ng-click="table.reset()">Go Back</button>
+	</div>
+</section>

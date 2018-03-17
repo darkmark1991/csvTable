@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body ng-app="csvTableApp">
+		<!-- Page header -->
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+					<h3 class="navbar-brand">CSV to Editable Table</h3>
+        </div>
+      </div>
+    </div>
+		<!-- Table app lives here -->
+    <div class="container" ng-controller="csvTableCtrl as table">
+			<!-- Upload will be visible when no file is uploaded -->
+			<div 
+				ng-include="'views/upload.html'"
+				ng-if="table.fileInfo == null"></div>
+			<!-- Info will be visible when file was uploaded but not parsed -->
+			<div 
+				ng-include="'views/info.html'"
+				ng-if="table.tableObj == null && table.fileInfo != null"></div>			
+			<!-- Table will be visible when file was parsed -->
+			<div
+				ng-include="'views/table.html'"
+				ng-if="table.tableObj != null"></div>
+		</div>
+
+		<!-- Dependency js scripts -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		
+		<!-- App js scripts -->
+		<script src="scripts/app.js"></script>
+		<script src="scripts/controllers/csvtable.js"></script>
+		<script src="scripts/services/handleupload.js"></script>
+		<script src="scripts/services/handledata.js"></script>
+		<script src="scripts/filters/capitalize.js"></script>
+		
+	</body>
+</html>
